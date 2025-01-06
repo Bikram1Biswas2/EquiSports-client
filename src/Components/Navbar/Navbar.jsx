@@ -2,31 +2,48 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
-import './Navbar.css'
+import "./Navbar.css";
 import { MdSportsHandball } from "react-icons/md";
 
 const Navbar = ({ toggleTheme, theme }) => {
   const { user, logOut } = useContext(AuthContext);
 
   const links = (
-    <div className="flex flex-col md:flex-col lg:flex-row" id='navbar'>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/allEquipment">All Sports Equipments</NavLink>
-      </li>
-      <li>
-        <NavLink to="/addEquipment">Add Equipments</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myEquipment">My Equipment List</NavLink>
-      </li>
-    </div>
+    <div className="flex  flex-col md:flex-col lg:flex-row" id="navbar">
+    <ul className="flex flex-col md:flex-row gap-4">
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/allEquipment">All Sports Equipments</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addEquipment">Add Equipments</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myEquipment">My Equipment List</NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/allEquipment">All Sports Equipments</NavLink>
+          </li>
+        </>
+      )}
+    </ul>
+  </div>
+  
   );
 
   return (
-    <div className="navbar  w-11/12 mx-auto">
+  <div className="bg-[#D7D3BF]">
+      <div className="navbar  w-11/12 mx-auto ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,7 +69,11 @@ const Navbar = ({ toggleTheme, theme }) => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold text-[#E85C0D]"> <MdSportsHandball className="text-3xl text-[#DB494F]" />EquiSports</a>
+        <a className="btn btn-ghost text-2xl font-bold text-[#E85C0D]">
+          {" "}
+          <MdSportsHandball className="text-3xl text-[#DB494F]" />
+          EquiSports
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -70,7 +91,11 @@ const Navbar = ({ toggleTheme, theme }) => {
                     <small>User Photo URL: ${user.photoURL}</small>
                   </div>`}
                 >
-                  <img src={user.photoURL} alt="User Avatar" />
+                  <img
+                    src={user.photoURL}
+                    alt="User Avatar"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               </div>
             )}
@@ -110,9 +135,7 @@ const Navbar = ({ toggleTheme, theme }) => {
               strokeLinejoin="round"
             >
               <circle cx="12" cy="12" r="5" />
-              <path
-                d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
-              />
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
             </svg>
             <input
               type="checkbox"
@@ -136,6 +159,7 @@ const Navbar = ({ toggleTheme, theme }) => {
         </button>
       </div>
     </div>
+  </div>
   );
 };
 
