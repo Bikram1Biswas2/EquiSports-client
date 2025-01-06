@@ -7,74 +7,70 @@ const AllEquipments = () => {
   const loadedEquipments = useLoaderData();
   const [equipments, setEquipments] = useState(loadedEquipments);
 
-
-  const handleSort = () => {
+  const handleSort = (order) => {
     const sortedEquipments = [...equipments];
-    sortedEquipments.sort((a, b) => (b.price || 0) - (a.price || 0));
+    sortedEquipments.sort((a, b) => {
+      if (order === "ascending") {
+        return (a.price || 0) - (b.price || 0); // Ascending
+      } else {
+        return (b.price || 0) - (a.price || 0); // Descending
+      }
+    });
     setEquipments(sortedEquipments);
   };
 
   return (
-    <div className="w-11/12 mx-auto mb-10 mt-[70px]">
+    <div className="w-11/12 mx-auto mb-10">
       <Fade>
-      <h2 className="text-2xl font-bold mb-6 text-center mt-6 text-[#D91656]">
-        All Sports Equipments: {loadedEquipments.length}
-      </h2>
+        <h2 className="text-2xl font-bold mb-6 text-center mt-6 text-[#D91656]">
+          All Sports Equipments: {loadedEquipments.length}
+        </h2>
       </Fade>
       <div className="text-center mb-6">
-        <button
-          onClick={handleSort}
-          className="bg-[#DB494F] text-white px-6 py-2 rounded-full hover:bg-[#D91656] transition duration-300 ease-in-out"
+        <select
+          onChange={(e) => handleSort(e.target.value)}
+          className="bg-gray-100 border border-gray-300 text-gray-700 px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#D91656] transition duration-300 ease-in-out"
         >
-          Sort by Price:Descending
-        </button>
+          <option value="" disabled selected>
+            Sort by Price
+          </option>
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
+        </select>
       </div>
-      <div className="overflow-x-auto">
-      <Slide>
-      <table className="min-w-full table-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-xl rounded-lg border-separate border-spacing-4">
-          <thead>
-            <tr className="text-white bg-opacity-80">
-              <th className="px-4 py-2 text-left">Item Image</th>
-              <th className="px-4 py-2 text-left">Item Name</th>
-              <th className="px-4 py-2 text-left">Category</th>
-              <th className="px-4 py-2 text-left">Price</th>
-              <th className="px-4 py-2 text-left">Rating</th>
-              <th className="px-4 py-2 text-left">Action</th>
-            </tr>
-          </thead>
-          <tbody className="text-white">
-            {equipments.map((equipment) => (
-              <tr
-                key={equipment._id}
-                className="hover:bg-opacity-70 hover:bg-purple-600"
-              >
-                <td className="px-4 py-2">
-                  <img
-                    src={equipment.image}
-                    alt={equipment.itemName}
-                    className="w-16 h-16 object-cover rounded-md"
-                  />
-                </td>
-
-                <td className="px-4 py-2">{equipment.itemName}</td>
-                <td className="px-4 py-2">{equipment.categoryName}</td>
-                <td className="px-4 py-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <Slide>
+          {equipments.map((equipment) => (
+            <div
+              key={equipment._id}
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+            >
+              <img
+                src={equipment.image}
+                alt={equipment.itemName}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 text-gray-800">
+                <h3 className="text-lg font-bold mb-2">{equipment.itemName}</h3>
+                <p className="text-sm mb-2">
+                  Category:{" "}
+                  <span className="font-semibold">{equipment.categoryName}</span>
+                </p>
+                <p className="text-sm mb-2">
+                  Price:{" "}
                   {equipment.price ? `$${equipment.price}` : "Price on request"}
-                </td>
-                <td className="px-4 py-2">{equipment.rating} ⭐</td>
-                <td className="px-4 py-2">
-                  <Link
-                    to={`/product-details/${equipment._id}`}
-                    className="bg-transparent text-white border-2 border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition duration-300 ease-in-out"
-                  >
-                    View Details
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Slide>
+                </p>
+                <p className="text-sm mb-2">Rating: {equipment.rating} ⭐</p>
+                <Link
+                  to={`/product-details/${equipment._id}`}
+                  className="block mt-4 bg-[#DB494F] text-white px-4 py-2 text-center rounded-full hover:bg-[#D91656] transition duration-300 ease-in-out"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+          ))}
+        </Slide>
       </div>
     </div>
   );

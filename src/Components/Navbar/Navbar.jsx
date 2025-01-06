@@ -10,7 +10,7 @@ const Navbar = ({ toggleTheme, theme }) => {
 
   const links = (
     <div className="flex  flex-col md:flex-col lg:flex-row" id="navbar">
-    <ul className="flex flex-col md:flex-row gap-4">
+    <ul className="flex flex-col md:flex-row gap-4 text-">
       {user ? (
         <>
           <li>
@@ -23,14 +23,14 @@ const Navbar = ({ toggleTheme, theme }) => {
             <NavLink to="/addEquipment">Add Equipments</NavLink>
           </li>
           <li>
-            <NavLink to="/myEquipment">My Equipment List</NavLink>
+            <NavLink to="/myEquipment">My Equipment</NavLink>
           </li>
           {/* <li>
             <NavLink to="/aboutUs">About Us</NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/contact">Contact</NavLink>
-          </li> */}
+          </li>
         </>
       ) : (
         <>
@@ -54,7 +54,7 @@ const Navbar = ({ toggleTheme, theme }) => {
   );
 
   return (
-  <div className="bg-[#D7D3BF]/70 bg-opacity-35 fixed top-0 left-0 w-full z-10 text-white mb-28">
+  <div className="bg-[#D7D3BF]/70 bg-opacity-35 sticky  top-0 left-0 w-full z-10 text-white">
       <div className="navbar  w-11/12 mx-auto ">
       <div className="navbar-start">
         <div className="dropdown">
@@ -87,7 +87,7 @@ const Navbar = ({ toggleTheme, theme }) => {
           EquiSports
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex flex-wrap justify-center">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">

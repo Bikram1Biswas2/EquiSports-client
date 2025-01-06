@@ -15,6 +15,7 @@ const MyEquipments = () => {
       .then((res) => res.json())
       .then((data) => {
         setEquipments(data);
+     
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +53,7 @@ const MyEquipments = () => {
   };
 
   return (
-    <div className="mb-10 mt-[70px] w-11/12 mx-auto">
+    <div className="mb-10 w-11/12 mx-auto">
       <h2 className="text-3xl">My Equipments: {equipments.length}</h2>
 
         <div className="overflow-x-auto mt-8">
