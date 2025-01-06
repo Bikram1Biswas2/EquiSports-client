@@ -12,12 +12,8 @@ const MyEquipments = () => {
   useEffect(() => {
     fetch(`https://equi-sports-server-nu.vercel.app/myEquipments/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => {
-        setEquipments(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((data) => setEquipments(data))
+      .catch((error) => console.log(error));
   }, [user?.email]);
 
   const handleDelete = (_id) => {
@@ -37,11 +33,7 @@ const MyEquipments = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your equipment has been deleted.",
-                icon: "success",
-              });
+              Swal.fire("Deleted!", "Your equipment has been deleted.", "success");
               const remaining = equipments.filter((equip) => equip._id !== _id);
               setEquipments(remaining);
             }
@@ -52,60 +44,58 @@ const MyEquipments = () => {
 
   return (
     <div className="mb-10 w-11/12 mx-auto">
-      <h2 className="text-3xl">My Equipments: {equipments.length}</h2>
+      <h2 className="text-3xl text-center mb-4">My Equipments: {equipments.length}</h2>
 
-      <div className="overflow-x-auto mt-8">
-        <table className="table-auto w-full border-collapse border border-gray-300">
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full border-collapse border border-gray-300 text-sm sm:text-base">
           <thead>
-            <tr>
-              <th className="border border-gray-300 px-4 py-2 text-left">Image</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Product Name</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Category</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Rating</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Price</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Actions</th>
+            <tr className="bg-gray-200 text-left text-xs sm:text-sm dark:bg-black">
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Image</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Product Name</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Category</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Description</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Rating</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Price</th>
+              <th className="border border-gray-300 px-2 py-3 sm:px-4 sm:py-2 dark:text-white">Actions</th>
             </tr>
           </thead>
           <tbody>
             {equipments.map((equipment) => (
               <tr key={equipment._id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border border-gray-300 px-2 py-2">
                   <img
                     src={equipment.image}
                     alt={equipment.itemName}
-                    className="w-20 h-20 object-cover rounded-lg"
+                    className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg"
                   />
                 </td>
-                <td className="border border-gray-300 px-4 py-2">{equipment.itemName}</td>
-                <td className="border border-gray-300 px-4 py-2">{equipment.categoryName}</td>
-                <td className="border border-gray-300 px-4 py-2 text-sm">
+                <td className="border border-gray-300 px-2 py-2">{equipment.itemName}</td>
+                <td className="border border-gray-300 px-2 py-2">{equipment.categoryName}</td>
+                <td className="border border-gray-300 px-2 py-2 text-xs sm:text-sm">
                   {equipment.description.slice(0, 50)}
                   {equipment.description.length > 50 ? "..." : ""}
                 </td>
-                <td className="border border-gray-300 px-4 py-2 text-yellow-400">
+                <td className="border border-gray-300 px-2 py-2 text-yellow-400">
                   {equipment.rating} ⭐
                 </td>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border border-gray-300 px-2 py-2">
                   {equipment.price ? `$${equipment.price}` : "Price on request"}
                 </td>
-                <td className="border px-4 py-2 flex space-x-3">
+                <td className="border px-2 py-2 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                   <Link
                     to={`/product-details/${equipment._id}`}
-                    className="bg-transparent text-black border-2 border-black px-4 py-2 rounded-full dark:text-white dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white transition duration-300 ease-in-out"
+                    className="bg-transparent text-black border-2 border-black px-4 py-1 rounded-full dark:text-white dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white transition duration-300 ease-in-out"
                   >
                     View Details
                   </Link>
-                  <button>
-                    <Link
-                      to={`/update/${equipment._id}`}
-                      data-tooltip-id="update-tooltip"
-                      data-tooltip-content="Update Item"
-                      className="text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300"
-                    >
-                      <MdOutlineUpdate />
-                    </Link>
-                  </button>
+                  <Link
+                    to={`/update/${equipment._id}`}
+                    data-tooltip-id="update-tooltip"
+                    data-tooltip-content="Update Item"
+                    className="text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300"
+                  >
+                    <MdOutlineUpdate />
+                  </Link>
                   <button
                     onClick={() => handleDelete(equipment._id)}
                     data-tooltip-id="delete-tooltip"
