@@ -6,7 +6,7 @@ const Banner = () => {
       <div id="slide1" className="carousel-item relative w-full  ">
         <img
           src="https://i.ibb.co/0K9Hjs8/og-1532940154.jpg"
-          className="w-full h-[400px]"
+          className="w-full h-[70vh]"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-4">
          <Bounce>
@@ -32,7 +32,7 @@ const Banner = () => {
       <div id="slide2" className="carousel-item relative w-full">
         <img
           src="https://i.ibb.co/M7Ppp9Z/Best-Trail-Running-Shoes-Hoka-Speedgoat-6.jpg"
-          className="w-full  h-[400px]"
+          className="w-full  h-[70vh]"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-4">
          <Bounce>
@@ -58,7 +58,7 @@ const Banner = () => {
       <div id="slide3" className="carousel-item relative w-full">
         <img
           src="https://i.ibb.co/4pXY7D7/360-F-263369603-U8-Ig-JWd-Nrrd-DRz5-Edx0-AATygzsmd-Y1-Nt.jpg"
-          className="w-full h-[400px]"
+          className="w-full h-[70vh]"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-4">
         <Bounce>
