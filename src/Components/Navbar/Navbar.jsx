@@ -25,6 +25,12 @@ const Navbar = ({ toggleTheme, theme }) => {
           <li>
             <NavLink to="/myEquipment">My Equipment List</NavLink>
           </li>
+          {/* <li>
+            <NavLink to="/aboutUs">About Us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
+          </li> */}
         </>
       ) : (
         <>
@@ -33,6 +39,12 @@ const Navbar = ({ toggleTheme, theme }) => {
           </li>
           <li>
             <NavLink to="/allEquipment">All Sports Equipments</NavLink>
+          </li>
+          <li>
+            <NavLink to="/aboutUs">About Us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </>
       )}

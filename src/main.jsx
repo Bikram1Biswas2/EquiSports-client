@@ -14,6 +14,8 @@ import AuthProvider, { AuthContext } from "./Components/Provider/AuthProvider";
 import ProductDetails from "./Components/Pages/ProductDetails";
 import Update from "./Components/Pages/Update";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
+import AboutUs from "./Components/Pages/AboutUs";
+import Contact from "./Components/Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
             <MyEquipments></MyEquipments>
           </PrivateRoute>
         ),
+      },
+      {
+        path:'aboutUs',
+        element:<AboutUs></AboutUs>
+      },
+      {
+        path:'contact',
+        element:<Contact></Contact>
       },
       {
         path: "/login",
