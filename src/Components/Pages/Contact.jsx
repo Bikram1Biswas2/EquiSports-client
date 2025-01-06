@@ -2,43 +2,43 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Impo
 
 const Contact = () => {
   return (
-    <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 dark:bg-black">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-[#D91656] mb-6 underline">
+        <h2 className="text-3xl font-bold text-[#D91656] mb-6 underline dark:text-white">
           Contact Us
         </h2>
-        <p className="text-xl text-[#EE66A6] mb-8">
+        <p className="text-xl text-[#EE66A6] mb-8 dark:text-white">
           Have questions or need assistance? Feel free to reach out to us, and we will be happy to help.
         </p>
 
         {/* Contact Information */}
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           <div className="text-left flex flex-col items-center gap-4">
-            <FaPhoneAlt className="text-4xl text-[#D91656]" />
-            <h3 className="text-2xl font-semibold text-[#D91656] mb-4">Call Us</h3>
-            <p className="text-lg text-gray-700">(123) 456-7890</p>
+            <FaPhoneAlt className="text-4xl text-[#D91656] dark:text-white" />
+            <h3 className="text-2xl font-semibold text-[#D91656] mb-4 dark:text-white">Call Us</h3>
+            <p className="text-lg text-gray-700 dark:text-white">(123) 456-7890</p>
           </div>
           <div className="text-left flex flex-col items-center gap-4">
-            <FaEnvelope className="text-4xl text-[#D91656]" />
-            <h3 className="text-2xl font-semibold text-[#D91656] mb-4">Email Us</h3>
-            <p className="text-lg text-gray-700">support@equipsports.com</p>
+            <FaEnvelope className="text-4xl text-[#D91656] dark:text-white" />
+            <h3 className="text-2xl font-semibold text-[#D91656] mb-4 dark:text-white">Email Us</h3>
+            <p className="text-lg text-gray-700 dark:text-white">support@equipsports.com</p>
           </div>
           <div className="text-left flex flex-col items-center gap-4">
-            <FaMapMarkerAlt className="text-4xl text-[#D91656]" />
-            <h3 className="text-2xl font-semibold text-[#D91656] mb-4">Visit Us</h3>
-            <p className="text-lg text-gray-700">
+            <FaMapMarkerAlt className="text-4xl text-[#D91656] dark:text-white" />
+            <h3 className="text-2xl font-semibold text-[#D91656] mb-4 dark:text-white">Visit Us</h3>
+            <p className="text-lg text-gray-700 dark:text-white">
               123 Sports Avenue, New York, NY 10001
             </p>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-lg shadow-lg mb-10">
-          <h3 className="text-2xl font-semibold text-[#D91656] mb-6">Get in Touch</h3>
+        <div className="bg-white p-8 rounded-lg shadow-lg mb-10 dark:bg-black dark:text-white">
+          <h3 className="text-2xl font-semibold text-[#D91656] mb-6 dark:text-white">Get in Touch</h3>
           <form action="#" method="POST">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-lg font-medium text-gray-700">
+                <label htmlFor="name" className="block text-lg font-medium text-gray-700 dark:text-white">
                   Full Name
                 </label>
                 <input
@@ -46,11 +46,11 @@ const Contact = () => {
                   id="name"
                   name="name"
                   required
-                  className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656]"
+                  className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656] dark:text-black"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-lg font-medium text-gray-700">
+                <label htmlFor="email" className="block text-lg font-medium text-gray-700 dark:text-white">
                   Email Address
                 </label>
                 <input
@@ -58,13 +58,13 @@ const Contact = () => {
                   id="email"
                   name="email"
                   required
-                  className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656]"
+                  className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656] dark:text-black"
                 />
               </div>
             </div>
 
             <div className="mt-6">
-              <label htmlFor="message" className="block text-lg font-medium text-gray-700">
+              <label htmlFor="message" className="block text-lg font-medium text-gray-700 dark:text-white">
                 Message
               </label>
               <textarea
@@ -72,14 +72,14 @@ const Contact = () => {
                 name="message"
                 required
                 rows="4"
-                className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656]"
+                className="mt-2 p-4 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D91656] dark:text-black"
               ></textarea>
             </div>
 
             <div className="mt-6 text-center">
               <button
                 type="submit"
-                className="bg-[#D91656] text-white px-8 py-3 rounded-full hover:bg-[#EE66A6] transition duration-300 ease-in-out"
+                className="bg-[#D91656] text-white px-8 py-3 rounded-full hover:bg-[#EE66A6] transition duration-300 ease-in-out dark:text-white"
               >
                 Send Message
               </button>

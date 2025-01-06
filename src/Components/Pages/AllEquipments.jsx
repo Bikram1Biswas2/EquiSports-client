@@ -22,7 +22,7 @@ const AllEquipments = () => {
   return (
     <div className="w-11/12 mx-auto mb-10">
       <Fade>
-        <h2 className="text-2xl font-bold mb-6 text-center mt-6 text-[#D91656]">
+        <h2 className="text-2xl font-bold mb-6 text-center mt-6 text-[#D91656] dark:text-white">
           All Sports Equipments: {loadedEquipments.length}
         </h2>
       </Fade>
@@ -43,27 +43,27 @@ const AllEquipments = () => {
           {equipments.map((equipment) => (
             <div
               key={equipment._id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 dark:bg-gray-600 "
             >
               <img
                 src={equipment.image}
                 alt={equipment.itemName}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover dark:text-white"
               />
               <div className="p-4 text-gray-800">
-                <h3 className="text-lg font-bold mb-2">{equipment.itemName}</h3>
-                <p className="text-sm mb-2">
+                <h3 className="text-lg font-bold mb-2 dark:text-white">{equipment.itemName}</h3>
+                <p className="text-sm mb-2 dark:text-white">
                   Category:{" "}
-                  <span className="font-semibold">{equipment.categoryName}</span>
+                  <span className="font-semibold dark:text-white">{equipment.categoryName}</span>
                 </p>
-                <p className="text-sm mb-2">
+                <p className="text-sm mb-2 dark:text-white">
                   Price:{" "}
                   {equipment.price ? `$${equipment.price}` : "Price on request"}
                 </p>
-                <p className="text-sm mb-2">Rating: {equipment.rating} ⭐</p>
+                <p className="text-sm mb-2 dark:text-white">Rating: {equipment.rating} ⭐</p>
                 <Link
                   to={`/product-details/${equipment._id}`}
-                  className="block mt-4 bg-[#DB494F] text-white px-4 py-2 text-center rounded-full hover:bg-[#D91656] transition duration-300 ease-in-out"
+                  className="block mt-4 bg-[#DB494F] text-white px-4 py-2 text-center rounded-full hover:bg-[#D91656] transition duration-300 ease-in-out dark:text-white"
                 >
                   View Details
                 </Link>

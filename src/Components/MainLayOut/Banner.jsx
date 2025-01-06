@@ -2,7 +2,7 @@ import { Bounce } from "react-awesome-reveal";
 
 const Banner = () => {
   return (
-    <div className="carousel w-full">
+    <div className="carousel w-full dark:text-white">
       <div id="slide1" className="carousel-item relative w-full  ">
         <img
           src="https://i.ibb.co/0K9Hjs8/og-1532940154.jpg"

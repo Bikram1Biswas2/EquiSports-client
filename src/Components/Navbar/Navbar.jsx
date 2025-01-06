@@ -4,9 +4,19 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "./Navbar.css";
 import { MdSportsHandball } from "react-icons/md";
+import { ThemeContext } from "../Provider/ThemeProvider";
+import { FaMoon, FaSun } from "react-icons/fa";
 
-const Navbar = ({ toggleTheme, theme }) => {
+const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const{theme,setTheme}=useContext(ThemeContext)
+
+
+
+  const handleChangeTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const links = (
     <div className="flex  flex-col md:flex-col lg:flex-row" id="navbar">
@@ -54,7 +64,7 @@ const Navbar = ({ toggleTheme, theme }) => {
   );
 
   return (
-  <div className="bg-[#D7D3BF]/70 bg-opacity-35 sticky  top-0 left-0 w-full z-10 text-white">
+  <div className="bg-[#D7D3BF]/70 bg-opacity-35 sticky  top-0 left-0 w-full z-10 text-black dark:text-white dark:bg-black">
       <div className="navbar  w-11/12 mx-auto ">
       <div className="navbar-start">
         <div className="dropdown">
@@ -81,9 +91,9 @@ const Navbar = ({ toggleTheme, theme }) => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold text-[#FFC107]">
+        <a className="btn btn-ghost text-2xl font-bold text-[#FFC107] dark:text-white">
           {" "}
-          <MdSportsHandball className="text-3xl text-[#FFC107]" />
+          <MdSportsHandball className="text-3xl text-[#FFC107] dark:text-white" />
           EquiSports
         </a>
       </div>
@@ -130,45 +140,12 @@ const Navbar = ({ toggleTheme, theme }) => {
             Login
           </Link>
         )}
-        <button
-          onClick={toggleTheme}
-          className="bg-[#DB494F] text-white px-6 py-2 rounded-full hover:bg-[#D91656] transition duration-300 ease-in-out ml-4"
-        >
-          <label className="flex cursor-pointer gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="5" />
-              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-            </svg>
-            <input
-              type="checkbox"
-              value="synthwave"
-              className="toggle theme-controller"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </label>
-        </button>
+         {/* theme */}
+         <div  className="navbar-end ml-4 text-xl">
+         <div onClick={handleChangeTheme}>
+          {theme==='light'? <FaMoon></FaMoon>: <FaSun></FaSun>}
+        </div>
+         </div>
       </div>
     </div>
   </div>

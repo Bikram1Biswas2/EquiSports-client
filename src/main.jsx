@@ -16,6 +16,7 @@ import Update from "./Components/Pages/Update";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import AboutUs from "./Components/Pages/AboutUs";
 import Contact from "./Components/Pages/Contact";
+import ThemeProvider from "./Components/Provider/ThemeProvider";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,8 @@ const router = createBrowserRouter([
       {
         path: "/allEquipment",
         element: <AllEquipments></AllEquipments>,
-        loader: () => fetch("https://equi-sports-server-nu.vercel.app/equipments"),
+        loader: () =>
+          fetch("https://equi-sports-server-nu.vercel.app/equipments"),
       },
       {
         path: "addEquipment",
@@ -49,12 +51,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:'aboutUs',
-        element:<AboutUs></AboutUs>
+        path: "aboutUs",
+        element: <AboutUs></AboutUs>,
       },
       {
-        path:'contact',
-        element:<Contact></Contact>
+        path: "contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/login",
@@ -72,7 +74,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://equi-sports-server-nu.vercel.app/equipments/${params.id}`),
+          fetch(
+            `https://equi-sports-server-nu.vercel.app/equipments/${params.id}`
+          ),
       },
       {
         path: "/update/:id",
@@ -82,7 +86,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://equi-sports-server-nu.vercel.app/equipments/${params.id}`),
+          fetch(
+            `https://equi-sports-server-nu.vercel.app/equipments/${params.id}`
+          ),
       },
     ],
   },
@@ -90,8 +96,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>
 );

@@ -4,7 +4,7 @@ const ProductDetails = () => {
   const product = useLoaderData();
 
   return (
-    <div className="w-11/12 mx-auto mt-[70px] p-6 bg-[#f8f8f8] rounded-lg shadow-xl mb-10">
+    <div className="w-11/12 mx-auto mt-[70px] p-6 bg-[#f8f8f8] rounded-lg shadow-xl mb-10 dark:text-white">
       <h2 className="text-3xl font-bold text-black mb-4">{product.itemName}</h2>
       <img
         src={product.image}

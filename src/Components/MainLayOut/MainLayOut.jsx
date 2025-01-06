@@ -11,8 +11,8 @@ const MainLayout = () => {
   };
 
   return (
-    <div className={`min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
+    <div className="dark:bg-black dark:text-white">
+      <Navbar />
       <div className="min-h-screen">
         <Outlet />
       </div>
