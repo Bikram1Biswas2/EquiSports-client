@@ -1,4 +1,6 @@
 import Banner from "./Banner";
+import CustomerReviews from "./CustomerReviews";
+import FAQ from "./FAQ";
 import LatestBlog from "./LatestBlog";
 import OurPolicies from "./OurPolicies";
 import ProductSection from "./ProductSection";
@@ -11,6 +13,8 @@ const Home = () => {
             <ProductSection></ProductSection>
             <LatestBlog></LatestBlog>
             <OurPolicies></OurPolicies>
+            <CustomerReviews></CustomerReviews>
+            <FAQ></FAQ>
         </div>
     );
 };

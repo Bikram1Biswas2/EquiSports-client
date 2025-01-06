@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { MdOutlineDeleteForever, MdOutlineUpdate } from "react-icons/md";
 import Swal from "sweetalert2";
-import { rubberBand } from "react-awesome-reveal";
+
 
 const MyEquipments = () => {
   const { user } = useContext(AuthContext);
