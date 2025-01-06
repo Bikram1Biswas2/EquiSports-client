@@ -62,8 +62,8 @@ const handleDelete = (_id) => {
   };
   
     return (
-        <div className="mb-10 mt-10 w-11/12 mx-auto">
-            <h2>My Equipments:{equipments.length}</h2>
+        <div className="mb-10 mt-[70px] w-11/12 mx-auto ">
+            <h2 className="text-3xl">My Equipments:{equipments.length}</h2>
            <Rotate>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {equipments.map((equipment) => (

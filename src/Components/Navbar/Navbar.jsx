@@ -42,7 +42,7 @@ const Navbar = ({ toggleTheme, theme }) => {
   );
 
   return (
-  <div className="bg-[#D7D3BF]">
+  <div className="bg-[#D7D3BF]/70 bg-opacity-35 fixed top-0 left-0 w-full z-10 text-white mb-28">
       <div className="navbar  w-11/12 mx-auto ">
       <div className="navbar-start">
         <div className="dropdown">
@@ -69,9 +69,9 @@ const Navbar = ({ toggleTheme, theme }) => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold text-[#E85C0D]">
+        <a className="btn btn-ghost text-2xl font-bold text-[#FFC107]">
           {" "}
-          <MdSportsHandball className="text-3xl text-[#DB494F]" />
+          <MdSportsHandball className="text-3xl text-[#FFC107]" />
           EquiSports
         </a>
       </div>

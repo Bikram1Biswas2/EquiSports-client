@@ -15,7 +15,7 @@ const AllEquipments = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto mb-10">
+    <div className="w-11/12 mx-auto mb-10 mt-[70px]">
       <Fade>
       <h2 className="text-2xl font-bold mb-6 text-center mt-6 text-[#D91656]">
         All Sports Equipments: {loadedEquipments.length}

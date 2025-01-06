@@ -48,7 +48,7 @@ const AddEquipments = () => {
 
   return (
     <div>
-      <div className="w-10/12 mx-auto mt-10 mb-10">
+      <div className="w-10/12 mx-auto mt-[70px] mb-10 ">
         <h2 className="text-2xl font-bold text-center mb-6">
           Add New Equipment
         </h2>
